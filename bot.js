@@ -9,6 +9,10 @@ client.on("ready", () => {
 });
 
 client.on("message", (message) => {
+  if (message.content.startsWith("!test")) {
+	  message.channel.send("Echo test.");
+  }
+	
   if (message.content.startsWith("!cannibalism")) {
 	var thisDate = new Date();
 	var msDiff = thisDate.getTime()-lastDate.getTime();
