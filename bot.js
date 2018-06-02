@@ -14,10 +14,7 @@ client.on("message", (message) => {
 	  message.channel.send("Echo test.");
   }
   if (message.content.startsWith("!save")) {
-	  message.attachments.forEach(a => {
-	     fs.writeFileSync(`./${a.name}`, a.file); // Write the file to the system synchronously.
-	  });
-	  message.channel.send("Saving "+a.name);
+	  message.channel.send(message.attachments);
   }
   if (message.content.startsWith("!cannibalism")) {
 	var thisDate = new Date();
