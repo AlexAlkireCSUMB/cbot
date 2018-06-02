@@ -7,7 +7,38 @@ var http = require('http');
 var exec = require('child_process').exec;
 //var spawn = require('child_process').spawn;
 var DOWNLOAD_DIR = '/home/pi/bot/images'
+const google = require('googleapis');
 
+// Each API may support multiple version. With this sample, we're getting
+// v1 of the urlshortener API, and using an API key to authenticate.
+
+const drive = google.drive('v3');
+const jwtClient = new google.auth.JWT(
+  sourceFile.email,
+  null,
+  sourceFile.driveAuthToken,
+  ['https://www.googleapis.com/auth/drive'],
+  null
+);
+
+jwtClient.authorize((authErr) => {
+  if (authErr) {
+    console.log(authErr);
+    return;
+  }
+  // Make an authorized requests
+  
+  // List Drive files.
+  drive.files.list({ auth: jwtClient }, (listErr, resp) => {
+    if (listErr) {
+      console.log(listErr);
+      return;
+    }
+    resp.files.forEach((file) => {
+      console.log(`${file.name} (${file.mimeType})`);
+    });
+  });
+});
 function getImages(file_uri) {
     // extract the file name
     var file_name = url.parse(file_uri).pathname.split('/').pop();
