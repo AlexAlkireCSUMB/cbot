@@ -15,13 +15,6 @@ client.on("message", (message) => {
   }
   if (message.content.startsWith("!save")) {
 	  message.channel.send(message.content);
-	  for( i in message.attachments ) {  
-		message.channel.send("a");
-	  }
-	  for( i in message.embeds ) {  
-		message.channel.send("b");
-	  }
-	  
   }
   if (message.content.startsWith("!cannibalism")) {
 	var thisDate = new Date();
