@@ -12,14 +12,22 @@ const google = require('googleapis');
 // Each API may support multiple version. With this sample, we're getting
 // v1 of the urlshortener API, and using an API key to authenticate.
 
-const drive = google.drive('v3');
-const jwtClient = new google.auth.JWT(
-  sourceFile.email,
-  null,
-  sourceFile.driveAuthToken,
-  ['https://www.googleapis.com/auth/drive'],
-  null
-);
+const drive = google.drive({
+  version: 'v3',
+  auth: sourceFile.driveAuthToken // specify your API key here
+});
+
+const res = await drive.files.create({
+  requestBody: {
+    name: 'Test',
+    mimeType: 'text/plain'
+  },
+  media: {
+    mimeType: 'text/plain',
+    body: 'Hello World'
+  }
+});
+
 
 jwtClient.authorize((authErr) => {
   if (authErr) {
