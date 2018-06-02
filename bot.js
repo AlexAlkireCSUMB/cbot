@@ -11,6 +11,7 @@ client.on("message", (message) => {
 	var thisDate = new Date();
 	var msDiff = thisDate.getTime()-lastDate.getTime();
     message.channel.send(msDiff);
+	lastDate = thisDate;
   }
 });
 
