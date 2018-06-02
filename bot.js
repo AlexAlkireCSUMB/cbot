@@ -31,7 +31,7 @@ client.on("message", (message) => {
 		string = string+"and ";
 	}
 	string = "Last mention of cannibalism was "+string+seconds+" seconds ago.";
-	message.channel.send(msDiff+'\n'+string);
+	message.channel.send(string);
 	
 	lastDate = thisDate;
   }
