@@ -28,6 +28,7 @@ client.on("ready", () => {
 client.on("message", (message) => {
   if (message.content.startsWith("!test")) {
 	  message.channel.send("Echo test.");
+	  console.log(message.channel.name);
   }
   if (message.channel.name == "art-and-lore"){
     if(message.attachEvent){
