@@ -7,33 +7,8 @@ var http = require('http');
 var exec = require('child_process').exec;
 //var spawn = require('child_process').spawn;
 var DOWNLOAD_DIR = '/home/pi/bot/images'
-const google = require('googleapis');
 
 
-const drive = google.drive({
-  version: 'v3',
-  auth: sourceFile.driveAuthToken // specify your API key here
-});
-
-
-jwtClient.authorize((authErr) => {
-  if (authErr) {
-    console.log(authErr);
-    return;
-  }
-  // Make an authorized requests
-  
-  // List Drive files.
-  drive.files.list({ auth: jwtClient }, (listErr, resp) => {
-    if (listErr) {
-      console.log(listErr);
-      return;
-    }
-    resp.files.forEach((file) => {
-      console.log(`${file.name} (${file.mimeType})`);
-    });
-  });
-});
 function getImages(file_uri) {
     // extract the file name
     var file_name = url.parse(file_uri).pathname.split('/').pop();
