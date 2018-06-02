@@ -9,23 +9,10 @@ var exec = require('child_process').exec;
 var DOWNLOAD_DIR = '/home/pi/bot/images'
 const google = require('googleapis');
 
-// Each API may support multiple version. With this sample, we're getting
-// v1 of the urlshortener API, and using an API key to authenticate.
 
 const drive = google.drive({
   version: 'v3',
   auth: sourceFile.driveAuthToken // specify your API key here
-});
-
-const res = await drive.files.create({
-  requestBody: {
-    name: 'Test',
-    mimeType: 'text/plain'
-  },
-  media: {
-    mimeType: 'text/plain',
-    body: 'Hello World'
-  }
 });
 
 
