@@ -7,7 +7,6 @@ var url = require('url');
 var cheerio = require('cheerio');
 var fs = require('fs');
 
-const fs = require('fs');
 function getImages(uri) {
     path = require('path')
  
