@@ -14,7 +14,10 @@ client.on("message", (message) => {
 	  message.channel.send("Echo test.");
   }
   if (message.content.startsWith("!save")) {
-	  message.channel.send(message.attachments);
+	  var coll = message.attachments;
+	  coll.foreach(function (i) {
+		  message.channel.send(i.name);
+	  })
   }
   if (message.content.startsWith("!cannibalism")) {
 	var thisDate = new Date();
