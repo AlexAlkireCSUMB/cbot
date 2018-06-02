@@ -2,8 +2,33 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var lastDate = new Date();
 var sourceFile = require('./auth.json');
+var request = require('request');
+var url = require('url');
+var cheerio = require('cheerio');
+var fs = require('fs');
 
 const fs = require('fs');
+function getImages(uri) {
+    path = require('path')
+ 
+    request(uri, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            $ = cheerio.load(body)
+            imgs = $('img').toArray()
+            console.log("Downloading...")
+            imgs.forEach(function (img) {
+                //console.log(img.attribs.src)
+                process.stdout.write(".");
+                img_url = img.attribs.src
+                if (/^https?:\/\//.test(img_url)) {
+                    img_name = path.basename(img_url)
+                    request(img_url).pipe(fs.createWriteStream(img_name))
+                }
+            })
+            console.log("Done!")
+        }
+    })
+}
 
 client.on("ready", () => {
   console.log("I am ready!");
@@ -17,7 +42,7 @@ client.on("message", (message) => {
     var a = (message.attachments).array()[0];
     //console.log(Attachment); //outputs array
     if(a){
-		//fs.writeFileSync(`./${a.name}`, a.file)
+		getImages(a.url);//fs.writeFileSync(`./${a.name}`, a.file)
 		console.log(a.url); //undefined
     }
 	//console.log(Attachment.MessageAttachment); //undefined
