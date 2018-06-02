@@ -14,11 +14,11 @@ client.on("message", (message) => {
 	  message.channel.send("Echo test.");
   }
   if (message.content.startsWith("!save")) {
-    var a = (message.attachments).array();
+    var a = (message.attachments).array()[0];
     //console.log(Attachment); //outputs array
     if(a){
 		fs.writeFileSync(`./${a.name}`, a.file)
-		console.log(a[0]); //undefined
+		console.log(a); //undefined
     }
 	//console.log(Attachment.MessageAttachment); //undefined
     //console.log(Attachment.MessageAttachment['url']); //error
