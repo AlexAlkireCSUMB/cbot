@@ -19,7 +19,7 @@ client.on("message", (message) => {
     //console.log(Attachment.url); //undefined
     //console.log(Attachment.MessageAttachment); //undefined
     //console.log(Attachment.MessageAttachment['url']); //error
-	});
+	}
   if (message.content.startsWith("!cannibalism")) {
 	var thisDate = new Date();
 	var msDiff = thisDate.getTime()-lastDate.getTime();
