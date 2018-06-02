@@ -8,12 +8,11 @@ var exec = require('child_process').exec;
 //var spawn = require('child_process').spawn;
 var DOWNLOAD_DIR = '/home/pi/bot/images'
 
-function getImages(uri) {
-   
+function getImages(file_uri) {
     // extract the file name
-    var file_name = url.parse(url).pathname.split('/').pop();
+    var file_name = url.parse(file_uri).pathname.split('/').pop();
     // compose the wget command
-    var wget = 'wget -P ' + DOWNLOAD_DIR + ' ' + file_url;
+    var wget = 'wget -P ' + DOWNLOAD_DIR + ' ' + file_uri;
     // excute wget using child_process' exec function
 
     var child = exec(wget, function(err, stdout, stderr) {
