@@ -15,7 +15,7 @@ client.on("message", (message) => {
   }
   if (message.content.startsWith("!save")) {
 	  var coll = message.attachments;
-	  coll.foreach(function (i) {
+	  coll.forEach(function (i) {
 		  message.channel.send(i.name);
 	  })
   }
