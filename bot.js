@@ -2,31 +2,24 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var lastDate = new Date();
 var sourceFile = require('./auth.json');
-var request = require('request');
 var url = require('url');
-var cheerio = require('cheerio');
-var fs = require('fs');
+var http = require('http');
+var exec = require('child_process').exec;
+//var spawn = require('child_process').spawn;
+var DOWNLOAD_DIR = '/home/pi/bot/images'
 
 function getImages(uri) {
-    path = require('path')
- 
-    request(uri, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            $ = cheerio.load(body)
-            imgs = $('img').toArray()
-            console.log("Downloading...")
-            imgs.forEach(function (img) {
-                //console.log(img.attribs.src)
-                process.stdout.write(".");
-                img_url = img.attribs.src
-                if (/^https?:\/\//.test(img_url)) {
-                    img_name = path.basename(img_url)
-                    request(img_url).pipe(fs.createWriteStream(img_name))
-                }
-            })
-            console.log("Done!")
-        }
-    })
+   
+    // extract the file name
+    var file_name = url.parse(url).pathname.split('/').pop();
+    // compose the wget command
+    var wget = 'wget -P ' + DOWNLOAD_DIR + ' ' + file_url;
+    // excute wget using child_process' exec function
+
+    var child = exec(wget, function(err, stdout, stderr) {
+        if (err) throw err;
+        else console.log(file_name + ' downloaded to ' + DOWNLOAD_DIR);
+    });
 }
 
 client.on("ready", () => {
