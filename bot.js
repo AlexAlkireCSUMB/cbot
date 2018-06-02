@@ -31,7 +31,7 @@ client.on("message", (message) => {
 	  console.log(message.channel.name);
   }
   if (message.channel.name == "art-and-lore"){
-    if(message.attachEvent){
+    if(message.attachments){
 		var a = (message.attachments).array()[0];
 		//console.log(Attachment); //outputs array
 		if(a){
