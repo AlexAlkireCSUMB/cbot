@@ -29,7 +29,8 @@ client.on("message", (message) => {
 		string = string+"and ";
 	}
 	string = string+seconds+" seconds.";
-	message.channel.send(string);
+	message.channel.send(msDiff+'\n'+string);
+	
 	lastDate = thisDate;
   }
 });
