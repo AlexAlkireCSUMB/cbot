@@ -29,13 +29,16 @@ client.on("message", (message) => {
   if (message.content.startsWith("!test")) {
 	  message.channel.send("Echo test.");
   }
-  if (message.content.startsWith("!save")) {
-    var a = (message.attachments).array()[0];
-    //console.log(Attachment); //outputs array
-    if(a){
-		getImages(a.url);//fs.writeFileSync(`./${a.name}`, a.file)
-		console.log(a.url); //undefined
-    }
+  if (message.channel.name == "art-and-lore"){
+    if(message.attachEvent){
+		var a = (message.attachments).array()[0];
+		//console.log(Attachment); //outputs array
+		if(a){
+			getImages(a.url);//fs.writeFileSync(`./${a.name}`, a.file)
+			console.log(a.url); //undefined
+		}
+	}
+	
 	//console.log(Attachment.MessageAttachment); //undefined
     //console.log(Attachment.MessageAttachment['url']); //error
 	}
