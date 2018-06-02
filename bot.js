@@ -14,7 +14,7 @@ client.on("message", (message) => {
 	  message.channel.send("Echo test.");
   }
   if (message.content.startsWith("!save")) {
-	  message.channel.send(message.attachments.count);
+	  message.channel.send(msg.attachments.count);
   }
   if (message.content.startsWith("!cannibalism")) {
 	var thisDate = new Date();
