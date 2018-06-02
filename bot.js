@@ -30,11 +30,12 @@ client.on("message", (message) => {
 	if(msDiff>=60*1000){
 		string = string+"and ";
 	}
-	string = string+seconds+" seconds.";
+	string = "Last mention of cannibalism was "+string+seconds+" seconds ago.";
 	message.channel.send(msDiff+'\n'+string);
 	
 	lastDate = thisDate;
   }
+  
 });
 
 client.login(sourceFile.authtoken);
