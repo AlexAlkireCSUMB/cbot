@@ -1,13 +1,16 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+var lastDate = Date();
 
 client.on("ready", () => {
   console.log("I am ready!");
 });
 
 client.on("message", (message) => {
-  if (message.content.startsWith("ping")) {
-    message.channel.send("pong2!");
+  if (message.content.startsWith("!cannibalism")) {
+	var thisDate = Date();
+	var msDiff = thisDate-lastDate;
+    message.channel.send(msDiff);
   }
 });
 
