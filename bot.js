@@ -18,7 +18,7 @@ client.on("message", (message) => {
     //console.log(Attachment); //outputs array
     if(a){
 		//fs.writeFileSync(`./${a.name}`, a.file)
-		console.log(a.name); //undefined
+		console.log(a.url); //undefined
     }
 	//console.log(Attachment.MessageAttachment); //undefined
     //console.log(Attachment.MessageAttachment['url']); //error
