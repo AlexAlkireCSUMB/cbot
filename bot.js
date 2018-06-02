@@ -3,6 +3,7 @@ const client = new Discord.Client();
 var lastDate = new Date();
 var sourceFile = require('./auth.json');
 
+const fs = require('fs');
 
 client.on("ready", () => {
   console.log("I am ready!");
@@ -12,7 +13,11 @@ client.on("message", (message) => {
   if (message.content.startsWith("!test")) {
 	  message.channel.send("Echo test.");
   }
-	
+  if (message.content.startsWith("!save")) {
+	  message.attachments.forEach(a => {
+	     fs.writeFileSync(`./${a.name}`, a.file); // Write the file to the system synchronously.
+	  });
+  }
   if (message.content.startsWith("!cannibalism")) {
 	var thisDate = new Date();
 	var msDiff = thisDate.getTime()-lastDate.getTime();
