@@ -10,7 +10,26 @@ client.on("message", (message) => {
   if (message.content.startsWith("!cannibalism")) {
 	var thisDate = new Date();
 	var msDiff = thisDate.getTime()-lastDate.getTime();
-    message.channel.send(msDiff);
+    var string = "";
+	var seconds = (msDiff/1000)%60;
+	var minutes = (msDiff/(1000*60))%60;
+	var hours = (msDiff/(1000*60*60))%24;
+	var days = (msDiff/(1000*60*60*24))%365	;
+	var years = (msDiff/(1000*60*60*24*365));	
+	if(years>0){
+		string = string+years+" years, ";
+	}
+	if(days>0){
+		string = string+days+" days, ";
+	}
+	if(minutes>0){
+		string = string+minutes+" minutes, ";
+	}
+	if(msDiff>=60*1000){
+		string = string+"and ";
+	}
+	string = string+seconds+" seconds.";
+	message.channel.send(string);
 	lastDate = thisDate;
   }
 });
