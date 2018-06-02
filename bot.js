@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var lastDate = new Date();
+var sourceFile = require('./auth.json');
+
 
 client.on("ready", () => {
   console.log("I am ready!");
@@ -35,4 +37,4 @@ client.on("message", (message) => {
   }
 });
 
-client.login("NDUyMzMzMjY4MDYzMjIzODE4.DfO-Gw.OhSj3PUiJbEyxZQXKbd_1Ho-J5Y");
+client.login(sourceFile.authtoken);
