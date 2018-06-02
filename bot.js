@@ -11,11 +11,11 @@ client.on("message", (message) => {
 	var thisDate = new Date();
 	var msDiff = thisDate.getTime()-lastDate.getTime();
     var string = "";
-	var seconds = (msDiff/1000)%60;
-	var minutes = (msDiff/(1000*60))%60;
-	var hours = (msDiff/(1000*60*60))%24;
-	var days = (msDiff/(1000*60*60*24))%365	;
-	var years = (msDiff/(1000*60*60*24*365));	
+	var seconds = ~~(msDiff/1000)%60;
+	var minutes = ~~(msDiff/(1000*60))%60;
+	var hours = ~~(msDiff/(1000*60*60))%24;
+	var days = ~~(msDiff/(1000*60*60*24))%365	;
+	var years = ~~(msDiff/(1000*60*60*24*365));	
 	if(years>0){
 		string = string+years+" years, ";
 	}
