@@ -9,7 +9,7 @@ client.on("ready", () => {
 client.on("message", (message) => {
   if (message.content.startsWith("!cannibalism")) {
 	var thisDate = Date();
-	var msDiff = thisDate.getTime()-lastDategetTime();
+	var msDiff = thisDate.getTime()-lastDate.getTime();
     message.channel.send(msDiff);
   }
 });
