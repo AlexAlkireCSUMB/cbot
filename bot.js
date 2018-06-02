@@ -15,9 +15,11 @@ client.on("message", (message) => {
   }
   if (message.content.startsWith("!save")) {
     var Attachment = (message.attachments).array();
-    console.log(Attachment); //outputs array
-    //console.log(Attachment.url); //undefined
-    //console.log(Attachment.MessageAttachment); //undefined
+    //console.log(Attachment); //outputs array
+    if(Attachment){
+	console.log(Attachment[0]); //undefined
+    }
+	//console.log(Attachment.MessageAttachment); //undefined
     //console.log(Attachment.MessageAttachment['url']); //error
 	}
   if (message.content.startsWith("!cannibalism")) {
