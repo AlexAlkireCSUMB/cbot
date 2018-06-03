@@ -28,7 +28,7 @@ client.on("ready", () => {
 });
 
 client.on("message", (message) => {
-  if(message.content.startsWith("!mats"){
+  if(message.content.startsWith("!mats")){
 	  console.channel.send(matList);
   }
   if (message.content.startsWith("!test")) {
