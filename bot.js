@@ -8,13 +8,7 @@ var exec = require('child_process').exec;
 //var spawn = require('child_process').spawn;
 var DOWNLOAD_DIR = '/home/pi/bot/images'
 
-var matList = "
-	stormsap
-	Hingan Flax
-	Hardened Veteran Tree Sap
-	Duskglow Aethersand
-	Kingcraft Demimateria
-"
+var matList = "Stormsap\nHingan Flax\nHardened Veteran Tree Sap\nDuskglow Aethersand\nKingcraft Demimateria"
 
 function getImages(file_uri) {
     // extract the file name
