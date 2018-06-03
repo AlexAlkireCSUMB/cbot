@@ -29,7 +29,7 @@ client.on("ready", () => {
 
 client.on("message", (message) => {
   if(message.content.startsWith("!mats")){
-	  console.channel.send(matList);
+	  message.channel.send(matList);
   }
   if (message.content.startsWith("!test")) {
 	  message.channel.send("Echo test.");
